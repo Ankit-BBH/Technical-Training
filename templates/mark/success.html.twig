@@ -1,0 +1,186 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Marksheet!{% endblock %}
+
+{% block body %}
+<style>
+    table, td, th {
+    border: 1px solid;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size:18px;
+    font-weight:500;
+}
+.main{
+    border:2px solid black;
+    width:80%;
+    height:fit-content;
+    text-align:center;
+    margin:0px 10%;
+    padding:0px 20px;
+}
+
+.sub{
+    margin-bottom:40px;
+}
+
+.table1 td{
+    width:368px;
+}
+.table3 td{
+    width:168px;
+}
+.yellow{
+    background-color:yellow;
+    font-weight:550;
+    width:258px;
+    height:24px;
+}
+.grey{
+    font-weight:550;
+    width:519px;
+    background-color:grey;
+}
+.orange{
+    font-weight:550;
+    width:519px;
+    background-color:orange;
+}
+.green{
+    font-weight:550;
+    background-color:green;
+}
+.pink{
+    font-weight:550;
+    background-color:pink;
+}
+
+.search{
+    width:80%;
+    height:3%;
+    margin:100px 10%;
+    text-align:center;
+    background:aliceblue;
+}
+.s-header{
+    background:aqua;
+}
+.s-main{
+    font-size:19px;
+}
+#rollnumber{
+    width:20%;
+    line-height:1.6;
+}
+button{
+    width:100px;
+    height:26px;
+    margin:15px;
+    border:1px solid black;
+    border-radius:15px;
+}
+</style>
+
+    <div class="main">
+        <div class="sub-main">
+            <div class="header">
+                <h1>D.A.V Public School</h1>
+            </div>
+            <div class="sub">
+                <table class="table1">
+                    <tr>
+                        <td class='yellow'>Class</td>
+                        <td>{{ data['class'] }}</td>
+                        <td class='yellow'>Session:</td>
+                        <td>{{ data['session'] }}</td>
+                    </tr>
+                    <tr>
+                        <td class='yellow'>Roll:</td>
+                        <td>{{ data['rollNo'] }}</td>
+                        <td class='yellow'>Date of Birth</td>
+                        <td>{{ data['dateOfBirth'] }}</td>
+                    </tr>
+                    <tr>
+                        <td class='yellow'>Name:</td>
+                        <td>{{ data['name'] }}</td>
+                        <td class='yellow'>Father's Name</td>
+                        <td>{{ data['fatherName'] }}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="sub">
+                <table class="table2">
+                    <tr>
+                        <th class='green'>Subjects</th>
+                        <td class='green'>Total Marks</td>
+                        <td class='green'>Passing Marks</td>
+                        <td class='green'>Marks Obtained</td>
+                        <td class='green'>Grade</td>
+                    </tr>
+                    <tr>
+                        <th>English</th>
+                        <td>100</td>
+                        <td>35</td>
+                        <td class='pink'>{{ data['marks']['english'] }}</td>
+                        <td>{{ data['grade']['english'] }}</td>
+                    </tr>
+                    <tr>
+                        <th>Math</th>
+                        <td>100</td>
+                        <td>35</td>
+                        <td class='pink'>{{ data['marks']['math'] }}</td>
+                        <td>{{ data['grade']['math'] }}</td>
+                    </tr>
+                    <tr>
+                        <th>Physics</th>
+                        <td>100</td>
+                        <td>35</td>
+                        <td class='pink'>{{ data['marks']['physics'] }}</td>
+                        <td>{{ data['grade']['physics'] }}</td>
+                    </tr>
+                    <tr>
+                        <th>Chemistry</th>
+                        <td>100</td>
+                        <td>35</td>
+                        <td class='pink'>{{ data['marks']['chemistry'] }}</td>
+                        <td>{{ data['grade']['chemistry'] }}</td>
+                    </tr>
+                    <tr>
+                        <th>Biology</th>
+                        <td>100</td>
+                        <td>35</td>
+                        <td class='pink'>{{ data['marks']['biology'] }}</td>
+                        <td> {{ data['grade']['biology'] }}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="sub">
+                <table class="table3">
+                        <tr>
+                            <td class='grey'>Total Marks:</td>
+                            <td>500</td>
+                            <td class='grey'>Obtained Marks:</td>
+                            <td> {{ data['total'] }}</td>
+                        </tr>
+                        <tr>
+                            <td class='grey'>Passing Marks:</td>
+                            <td>165</td>
+                            <td class='grey'>Percentage:</td>
+                            <td>{{ data['percentage'] }}</td>
+                        </tr>
+                        <tr>
+                            <td class='orange'>Result:</td>
+                            <td> {{ data['status'] }}</td>
+                            <td class='orange'>Grade:</td>
+                            <td>{{ data['grade']['total'] }}</td>
+                        </tr>
+                    </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
